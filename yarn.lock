@@ -74,6 +74,11 @@
     "@vue/compiler-dom" "3.1.1"
     "@vue/shared" "3.1.1"
 
+"@vue/devtools-api@^6.0.0-beta.14":
+  version "6.0.0-beta.14"
+  resolved "https://registry.nlark.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.14.tgz?cache=0&sync_timestamp=1623239831716&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vue%2Fdevtools-api%2Fdownload%2F%40vue%2Fdevtools-api-6.0.0-beta.14.tgz#6ed2d6f8d66a9256c9ad04bfff08309ba87b9723"
+  integrity sha1-btLW+NZqklbJrQS//wgwm6h7lyM=
+
 "@vue/reactivity@3.1.1":
   version "3.1.1"
   resolved "https://registry.nlark.com/@vue/reactivity/download/@vue/reactivity-3.1.1.tgz#9c02fd146a6c3b03e7d658b7cf76f4b69b0f98c8"
@@ -357,6 +362,11 @@ to-fast-properties@^2.0.0:
   resolved "https://registry.nlark.com/to-fast-properties/download/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
   integrity sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=
 
+typescript@^4.3.4:
+  version "4.3.4"
+  resolved "https://registry.nlark.com/typescript/download/typescript-4.3.4.tgz#3f85b986945bcf31071decdd96cf8bfa65f9dcbc"
+  integrity sha1-P4W5hpRbzzEHHezdls+L+mX53Lw=
+
 util-deprecate@^1.0.2:
   version "1.0.2"
   resolved "https://registry.nlark.com/util-deprecate/download/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
@@ -373,6 +383,13 @@ vite@^2.3.7:
     rollup "^2.38.5"
   optionalDependencies:
     fsevents "~2.3.2"
+
+vue-router@^4.0.10:
+  version "4.0.10"
+  resolved "https://registry.nlark.com/vue-router/download/vue-router-4.0.10.tgz#ec8fda032949b2a31d3273170f8f376e86eb52ac"
+  integrity sha1-7I/aAylJsqMdMnMXD483bobrUqw=
+  dependencies:
+    "@vue/devtools-api" "^6.0.0-beta.14"
 
 vue@^3.0.5:
   version "3.1.1"

@@ -1,0 +1,17 @@
+{
+  "Vue3.0模板": {
+    "prefix": "Vue3",
+    "body": [
+      "<template>",
+      "\t<div>\n",
+      "\t</div>",
+      "</template>\n",
+      "<script setup lang='ts'>\n",
+      "</script>\n",
+      "<style scoped>\n",
+      "</style>",
+      "$2"
+    ],
+    "description": "Vue3"
+  }
+}
