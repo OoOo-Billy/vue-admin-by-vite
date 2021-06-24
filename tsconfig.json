@@ -1,7 +1,36 @@
 {
   "compilerOptions": {
-    "target": "es5"
+    "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "~deps/*": [
+        "node_modules/*"
+      ],
+    },
+    "types": [
+      "node",
+      "vite/client"
+    ],
+    "typeRoots": [
+      "./node_modules/@types/",
+      "./types"
+    ]
   },
-  "include": [],
-  "exclude": []
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "types/shims-vue.d.ts",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
