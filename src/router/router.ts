@@ -4,12 +4,12 @@ export default [
     name: 'home',
     redirect: '/overview',
     meta: {},
-    component: () => import('../layout/index.vue'),
+    component: () => import('@/layout/index.vue'),
     children: [
       {
         path: '/overview',
         name: 'overview',
-        component: () => import('../views/overview.vue'),
+        component: () => import('@/views/overview.vue'),
         meta: {},
       },
     ],
