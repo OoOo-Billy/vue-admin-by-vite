@@ -4,10 +4,11 @@ import {
   ElButton,
   ElMenu,
   ElMenuItem,
-  ElMenuItemGroup,
   ElScrollbar,
   ElMessage,
+  ElSubmenu,
 } from 'element-plus';
+import 'element-plus/packages/theme-chalk/src/base.scss';
 
 type LazyComponent = SFCWithInstall<Component & { name: string }>;
 
@@ -16,7 +17,7 @@ const components: LazyComponent[] = [
   ElButton,
   ElMenu,
   ElMenuItem,
-  ElMenuItemGroup,
+  ElSubmenu,
   ElScrollbar,
 ];
 const plugins: LazyComponent[] = [ElMessage];
