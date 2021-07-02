@@ -5,7 +5,7 @@ import styleImport from 'vite-plugin-style-import';
 
 const alias: Record<string, string> = {
   '@': path.resolve(__dirname, '.', 'src'),
-  '~deps': path.resolve(__dirname, '.', 'node_modules'),
+  '~': path.resolve(__dirname, '.', 'node_modules'),
 };
 
 // https://vitejs.dev/config/

@@ -1,5 +1,4 @@
 import type { App, Component } from 'vue';
-import type { SFCWithInstall } from '~deps/element-plus/packages/utils/types';
 import {
   ElButton,
   ElMenu,
@@ -10,17 +9,17 @@ import {
 } from 'element-plus';
 import 'element-plus/packages/theme-chalk/src/base.scss';
 
-type LazyComponent = SFCWithInstall<Component & { name: string }>;
+type onDemandComponent = SFCWithInstall<Component & { name: string }>;
 
-// 懒加载的组件
-const components: LazyComponent[] = [
+// 按需加载的组件
+const components: onDemandComponent[] = [
   ElButton,
   ElMenu,
   ElMenuItem,
   ElSubmenu,
   ElScrollbar,
 ];
-const plugins: LazyComponent[] = [ElMessage];
+const plugins: onDemandComponent[] = [ElMessage];
 
 const useElementPlus = (vm: App) => {
   components.forEach(component => {
