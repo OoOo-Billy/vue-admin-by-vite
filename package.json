@@ -1,5 +1,9 @@
 {
-  "version": "0.0.0",
+  "name": "vue-admin-by-vite",
+  "license": "MIT",
+  "description": "采用Vue 3 + ts + element Plus + vite编写的普通后台管理应用",
+  "author": "OoOo-Billy",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
