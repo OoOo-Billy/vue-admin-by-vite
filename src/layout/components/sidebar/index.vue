@@ -1,8 +1,8 @@
 <template>
   <div class="side-bar-container">
     <div class="tesx">i'm logo</div>
-    <el-scrollbar>
-      <el-menu unique-opened>
+    <el-scrollbar noresiz view-style="height: 100%;">
+      <el-menu unique-opened router>
         <SideBarItem v-for="item in STATIC_ROUTERS" :item="item" />
       </el-menu>
     </el-scrollbar>

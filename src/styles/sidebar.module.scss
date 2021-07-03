@@ -6,3 +6,6 @@
   transition: width 0.28s;
   width: 210px;
 }
+:deep(.el-menu) {
+  height: 100%;
+}
