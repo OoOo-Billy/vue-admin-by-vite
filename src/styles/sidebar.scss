@@ -1,0 +1,14 @@
+.side-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transition: width $duration;
+  width: $sideBarWidth;
+  .el-menu {
+    height: 100%;
+  }
+}
+.main-container {
+  margin-left: $sideBarWidth;
+}

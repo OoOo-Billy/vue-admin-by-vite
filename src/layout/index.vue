@@ -2,15 +2,13 @@
   <!-- Sidebar -->
   <SideBar />
   <!-- MainBody -->
-  <div>
+  <div class="main-container">
     <router-view />
   </div>
   <!-- Other -->
-  <div>333</div>
+  <!-- <div></div> -->
 </template>
 
 <script setup lang="ts">
 import SideBar from './components/sidebar/index.vue';
 </script>
-
-<style scoped></style>
