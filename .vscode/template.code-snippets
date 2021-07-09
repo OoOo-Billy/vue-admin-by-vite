@@ -8,7 +8,7 @@
       "</template>\n",
       "<script setup lang='ts'>\n",
       "</script>\n",
-      "<style scoped>\n",
+      "<style lang=\"scss\" scoped>\n",
       "</style>",
       "$2"
     ],
