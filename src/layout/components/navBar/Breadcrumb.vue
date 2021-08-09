@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue';
 import type { Ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import type { RouteLocationMatched } from 'vue-router';
 
 const list: Ref<RouteLocationMatched[]> = ref([]);

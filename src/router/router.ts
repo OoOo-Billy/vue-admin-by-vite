@@ -11,12 +11,12 @@ export default [
     name: 'home',
     redirect: '/overview',
     meta: {},
-    component: () => import('@/layout/index.vue'),
+    component: () => import('@/Layout/index.vue'),
     children: [
       {
         path: '/overview',
         name: 'overview',
-        component: () => import('@/views/overview.vue'),
+        component: () => import('@/views/Overview.vue'),
         meta: {
           icon: 'el-icon-monitor',
           title: '首页',
