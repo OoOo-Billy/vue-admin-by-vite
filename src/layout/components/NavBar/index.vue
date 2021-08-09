@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-wrapper">
     <!-- 折叠 -->
-    <Hamburger class="app-hamburger" />
+    <Hamburger class="app-hamburger" is-Active @toggle="toggleSidebar" />
 
     <!-- 面包屑 -->
     <Breadcrumb class="app-breadcrumb" />
@@ -14,6 +14,10 @@
 <script setup lang="ts">
 import Hamburger from './Hamburger.vue';
 import Breadcrumb from './Breadcrumb.vue';
+
+const toggleSidebar = () => {
+  alert('yeah!');
+};
 </script>
 
 <style lang="scss" scoped>
@@ -21,5 +25,11 @@ import Breadcrumb from './Breadcrumb.vue';
 .app-breadcrumb {
   float: left;
   line-height: $headerHeight;
+}
+.app-hamburger {
+  cursor: pointer;
+  &:hover {
+    background: rgba(0, 0, 0, 0.025);
+  }
 }
 </style>
