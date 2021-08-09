@@ -17,7 +17,7 @@ import type { RouteLocationMatched } from 'vue-router';
 const list: Ref<RouteLocationMatched[]> = ref([]);
 const route = useRoute();
 
-const isHome = (route: RouteLocationMatched): boolean | void => {
+const isRoot = (route: RouteLocationMatched): boolean | void => {
   const name = route.name as string;
   return name?.trim().toLocaleLowerCase() === 'overview'.toLocaleLowerCase();
 };
@@ -26,7 +26,7 @@ watchEffect(
   () => {
     let matched = route.matched.filter(item => item?.meta?.title);
     const first = matched[0];
-    if (!isHome(first)) {
+    if (!isRoot(first)) {
       matched = [
         {
           path: '/',
