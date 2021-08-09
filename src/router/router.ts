@@ -11,7 +11,7 @@ export default [
     name: 'home',
     redirect: '/overview',
     meta: {},
-    component: () => import('@/Layout/index.vue'),
+    component: () => import('@/layout/index.vue'),
     children: [
       {
         path: '/overview',
