@@ -19,7 +19,7 @@ const route = useRoute();
 
 const isRoot = (route: RouteLocationMatched): boolean | void => {
   const name = route.name as string;
-  return name?.trim().toLocaleLowerCase() === 'overview'.toLocaleLowerCase();
+  return name?.trim().toLocaleLowerCase() === 'overview';
 };
 
 watchEffect(
@@ -39,5 +39,3 @@ watchEffect(
   { flush: 'post' }
 );
 </script>
-
-<style lang="scss" scoped></style>

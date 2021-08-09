@@ -1,10 +1,10 @@
 <template>
   <div class="navbar-wrapper">
     <!-- 折叠 -->
-    <Hamburger />
+    <Hamburger class="app-hamburger" />
 
     <!-- 面包屑 -->
-    <Breadcrumb />
+    <Breadcrumb class="app-breadcrumb" />
 
     <!-- 右侧按钮 -->
     <div></div>
@@ -17,7 +17,9 @@ import Breadcrumb from './Breadcrumb.vue';
 </script>
 
 <style lang="scss" scoped>
-.navbar-wrapper {
-  display: flex;
+.app-hamburger,
+.app-breadcrumb {
+  float: left;
+  line-height: $headerHeight;
 }
 </style>
