@@ -3,9 +3,12 @@
   top: 0;
   left: 0;
   bottom: 0;
-  transition: width $duration;
-  width: $sideBarWidth;
-  .side-bar-logo {
+  width: $sidebarWidth;
+  &.collapse {
+    @include sidebarTransition(width);
+    width: $collapseSidebarWidth;
+  }
+  .logo-wrapper {
     height: $headerHeight;
   }
   .el-menu {
@@ -14,7 +17,11 @@
 }
 
 .main-container {
-  margin-left: $sideBarWidth;
+  margin-left: $sidebarWidth;
+  @include sidebarTransition(margin-left);
+  &.collapse {
+    margin-left: $collapseSidebarWidth;
+  }
   .navbar-wrapper {
     height: $headerHeight;
   }

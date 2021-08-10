@@ -14,9 +14,12 @@
 <script setup lang="ts">
 import Hamburger from './Hamburger.vue';
 import Breadcrumb from './Breadcrumb.vue';
+import { useLayoutStore } from '@/store/modules/layout';
+
+const store = useLayoutStore();
 
 const toggleSidebar = () => {
-  alert('yeah!');
+  store.toggleCollapse();
 };
 </script>
 
