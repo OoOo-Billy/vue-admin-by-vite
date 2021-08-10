@@ -16,7 +16,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmit } from 'vue';
 defineProps({
   isActive: Boolean,
 });
