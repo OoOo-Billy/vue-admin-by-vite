@@ -16,9 +16,9 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  isActive: Boolean,
-});
+defineProps<{
+  isActive: boolean;
+}>();
 const emit = defineEmit(['toggle']);
 </script>
 

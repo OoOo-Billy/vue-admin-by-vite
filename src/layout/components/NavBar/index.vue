@@ -1,7 +1,11 @@
 <template>
   <div class="navbar-wrapper">
     <!-- 折叠 -->
-    <Hamburger class="app-hamburger" is-Active @toggle="toggleSidebar" />
+    <Hamburger
+      class="app-hamburger"
+      :is-active="!store.sidebarCollapse"
+      @toggle="toggleSidebar"
+    />
 
     <!-- 面包屑 -->
     <Breadcrumb class="app-breadcrumb" />
