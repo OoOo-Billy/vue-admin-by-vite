@@ -16,11 +16,20 @@ export default [
       {
         path: '/overview',
         name: 'overview',
-        component: () => import('@/views/Overview.vue'),
         meta: {
           icon: 'el-icon-monitor',
           title: '首页',
         },
+        component: () => import('@/views/Overview.vue'),
+      },
+      {
+        path: '/test-view',
+        name: 'test-view',
+        meta: {
+          icon: 'el-icon-panel',
+          title: '开发页',
+        },
+        component: () => import('@/views/Test'),
       },
     ],
   },
