@@ -26,7 +26,7 @@ export default [
         path: '/test-view',
         name: 'test-view',
         meta: {
-          icon: 'el-icon-panel',
+          icon: 'el-icon-brush',
           title: '开发页',
         },
         component: () => import('@/views/Test'),
