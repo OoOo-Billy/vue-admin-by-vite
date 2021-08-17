@@ -5,7 +5,7 @@
   bottom: 0;
   width: $sidebarWidth;
   &.collapse {
-    @include sidebarTransition(width);
+    @include sidebar-transition(width);
     width: $collapseSidebarWidth;
   }
   .logo-wrapper {
@@ -18,11 +18,12 @@
 
 .main-container {
   margin-left: $sidebarWidth;
-  @include sidebarTransition(margin-left);
+  @include sidebar-transition(margin-left);
   &.collapse {
     margin-left: $collapseSidebarWidth;
   }
   .navbar-wrapper {
     height: $headerHeight;
+    border-bottom: $pure-border;
   }
 }

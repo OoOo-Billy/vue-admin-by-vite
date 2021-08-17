@@ -1,7 +1,3 @@
-/* 定义全局样式变量 */
-$--color-primary: teal; // element plus 默认主题颜色
-// #2c3e50 vue 默认颜色
-
 /* 侧边栏变量
 -------------------- */
 $sidebarWidth: 210px;
@@ -9,8 +5,9 @@ $collapseSidebarWidth: 65px;
 // 收缩动画时间
 $duration: 0.28s;
 
-@mixin sidebarTransition(
-  // 菜单选中后字体样式
+// 侧边栏收缩动画
+@mixin sidebar-transition(
+  // 出现动画的css属性
   $transition-property
 ) {
   transition: $transition-property $duration ease-in;
@@ -23,3 +20,12 @@ $headerHeight: 56px;
 /* 统一样式
 -------------------- */
 $pure-border: 1px solid #e6e6e6;
+$font-icon-size: 20px;
+
+// 可点击按钮hover样式
+@mixin hover-pointer {
+  &:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.025);
+  }
+}
