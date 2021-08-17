@@ -1,0 +1,9 @@
+.screen-toggle {
+  @include hover-pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  height: 100%;
+  font-size: $font-icon-size;
+}

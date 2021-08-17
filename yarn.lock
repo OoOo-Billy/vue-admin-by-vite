@@ -453,6 +453,21 @@
   resolved "https://registry.nlark.com/@vue/shared/download/@vue/shared-3.2.1.tgz?cache=0&sync_timestamp=1628541040228&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vue%2Fshared%2Fdownload%2F%40vue%2Fshared-3.2.1.tgz#1f1fe26fe0334404cce10740b5ffb2654f1281aa"
   integrity sha1-Hx/ib+AzRATM4QdAtf+yZU8Sgao=
 
+"@vueuse/core@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.nlark.com/@vueuse/core/download/@vueuse/core-6.0.0.tgz#ebb6ad380682adc6c7d6c3be4f3e4003543845fd"
+  integrity sha1-67atOAaCrcbH1sO+Tz5AA1Q4Rf0=
+  dependencies:
+    "@vueuse/shared" "6.0.0"
+    vue-demi "*"
+
+"@vueuse/shared@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.nlark.com/@vueuse/shared/download/@vueuse/shared-6.0.0.tgz#e6b8804541a1853615db3dd869d07653b244451f"
+  integrity sha1-5riARUGhhTYV2z3YadB2U7JERR8=
+  dependencies:
+    vue-demi "*"
+
 ansi-styles@^3.2.1:
   version "3.2.1"
   resolved "https://registry.nlark.com/ansi-styles/download/ansi-styles-3.2.1.tgz#41fbb20243e50b12be0f04b8dedbf07520ce841d"
@@ -1196,6 +1211,11 @@ vite@^2.3.7:
     rollup "^2.38.5"
   optionalDependencies:
     fsevents "~2.3.2"
+
+vue-demi@*:
+  version "0.11.3"
+  resolved "https://registry.nlark.com/vue-demi/download/vue-demi-0.11.3.tgz?cache=0&sync_timestamp=1628928156379&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue-demi%2Fdownload%2Fvue-demi-0.11.3.tgz#dd7495b92b495ecfa35675bf024b1358a7add150"
+  integrity sha1-3XSVuStJXs+jVnW/AksTWKet0VA=
 
 vue-demi@latest:
   version "0.11.2"
