@@ -12,13 +12,13 @@
 
     <!-- 右侧操作菜单 -->
     <div class="slot-right">
-      <!-- 管理员 -->
-      <div class="nav-bar__slot__user">
-        <div></div>
-      </div>
       <!-- 全屏切换 -->
       <div class="nav-bar__slot__fullscreen">
         <Fullscreen />
+      </div>
+      <!-- 管理员 -->
+      <div class="nav-bar__slot__user">
+        <Avatar />
       </div>
     </div>
   </div>
@@ -28,6 +28,7 @@
 import Hamburger from './Hamburger.vue';
 import Breadcrumb from './Breadcrumb.vue';
 import Fullscreen from '@/components/Fullscreen';
+import Avatar from '@/components/Avatar';
 import { useLayoutStore } from '@/store/modules/layout';
 
 const store = useLayoutStore();
@@ -38,6 +39,9 @@ const toggleSidebar = () => {
 </script>
 
 <style lang="scss" scoped>
+.navbar-wrapper {
+  padding-right: 10px;
+}
 .app-hamburger,
 .app-breadcrumb {
   float: left;
@@ -50,6 +54,7 @@ const toggleSidebar = () => {
 .slot-right {
   float: right;
   display: flex;
+  align-items: center;
   height: 100%;
   .nav-bar__slot__fullscreen {
     width: $headerHeight;
