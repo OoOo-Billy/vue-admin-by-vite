@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import styleImport from 'vite-plugin-style-import';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import { viteMockServe } from 'vite-plugin-mock';
 
 const alias: Record<string, string> = {
   '@': path.resolve(__dirname, '.', 'src'),
@@ -31,6 +32,18 @@ export default defineConfig({
           },
         },
       ],
+    }),
+    viteMockServe({
+      mockPath: 'mock',
+      supportTs: true,
+      ignore: new RegExp('d.ts$'),
+      watchFiles: true,
+      // ignoreFiles: string[],
+      injectCode: `
+          import { setupProdMockServer } from './mockProdServer';
+          setupProdMockServer();
+        `,
+      logger: true,
     }),
   ],
   css: {
