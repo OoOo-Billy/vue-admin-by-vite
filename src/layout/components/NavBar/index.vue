@@ -54,10 +54,13 @@ const toggleSidebar = () => {
 .slot-right {
   float: right;
   display: flex;
-  align-items: center;
   height: 100%;
   .nav-bar__slot__fullscreen {
     width: $headerHeight;
+  }
+  .nav-bar__slot__user {
+    height: 100%;
+    line-height: $headerHeight;
   }
 }
 </style>
