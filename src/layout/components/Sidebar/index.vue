@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { readonly, ref } from 'vue';
+import { readonly } from 'vue';
 import { staticRoutes } from '@/router';
 import type { RouteRecordRaw } from 'vue-router';
 import SideBarItem from './SidebarItem.vue';

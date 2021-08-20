@@ -24,6 +24,7 @@ const isRoot = (route: RouteLocationMatched): boolean | void => {
 
 watchEffect(
   () => {
+    console.log('update breadcrumb.');
     let matched = route.matched.filter(item => item?.meta?.title);
     const first = matched[0];
     if (!isRoot(first)) {
