@@ -12,6 +12,8 @@
 
     <!-- 右侧操作菜单 -->
     <div class="slot-right">
+      <!-- 消息通知 -->
+      <div class="nav-bar__slot__ring"></div>
       <!-- 全屏切换 -->
       <div class="nav-bar__slot__fullscreen">
         <Fullscreen />
@@ -55,6 +57,8 @@ const toggleSidebar = () => {
   float: right;
   display: flex;
   height: 100%;
+  .nav-bar__slot__ring {
+  }
   .nav-bar__slot__fullscreen {
     width: $headerHeight;
   }

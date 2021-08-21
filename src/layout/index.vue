@@ -9,7 +9,9 @@
       <!-- Tags -->
       <div></div>
     </div>
-    <router-view />
+    <div style="margin: 8px">
+      <router-view />
+    </div>
   </div>
   <!-- Other -->
   <!-- <div></div> -->
