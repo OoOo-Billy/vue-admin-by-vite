@@ -36,7 +36,7 @@ export default defineConfig({
     viteMockServe({
       mockPath: 'mock',
       supportTs: true,
-      ignore: new RegExp('d.ts$'),
+      ignore: new RegExp('.d.ts$'),
       watchFiles: true,
       // ignoreFiles: string[],
       injectCode: `
