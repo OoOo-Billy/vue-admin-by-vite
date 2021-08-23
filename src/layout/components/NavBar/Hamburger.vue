@@ -19,7 +19,7 @@
 defineProps<{
   isActive: boolean;
 }>();
-const emit = defineEmit(['toggle']);
+const emit = defineEmits(['toggle']);
 </script>
 
 <style lang="scss" scoped>
