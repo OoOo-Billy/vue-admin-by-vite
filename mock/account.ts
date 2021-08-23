@@ -25,4 +25,13 @@ const login: MockMethod = {
   },
 };
 
-export default [login];
+const logout: MockMethod = {
+  url: '/api/account/logout',
+  method: 'get',
+  response: () => ({
+    code: 'SUCCESS',
+    message: '操作成功',
+  }),
+};
+
+export default [login, logout];
