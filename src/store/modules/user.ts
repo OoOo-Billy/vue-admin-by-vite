@@ -12,13 +12,14 @@ export const useUserStore = defineStore({
     async login(param: LoginParams) {
       try {
         const res = await apiLogin(param);
-        if (res) {
-          const { nickname, authority, id } = res;
-          this.nickname = nickname;
-          this.authority = authority;
-          this.id = id;
-        }
-      } catch {}
+
+        const { nickname, authority, id } = res;
+        this.nickname = nickname;
+        this.authority = authority;
+        this.id = id;
+      } catch {
+        throw new Error();
+      }
     },
 
     logout() {

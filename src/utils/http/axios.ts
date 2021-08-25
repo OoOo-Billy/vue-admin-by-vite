@@ -1,5 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { getConfig } from './config';
+import { ElMessage } from 'element-plus';
 
 export default class EnclosureHttp {
   constructor() {
@@ -55,8 +56,12 @@ export default class EnclosureHttp {
       })
       .catch((err: ServerResponse) => {
         const { code, message } = err;
-        // TODO global toast error
+
+        ElMessage.error(message);
+
         console.error(`${code}: ${message}`);
+
+        return Promise.reject(err);
       });
   }
 
