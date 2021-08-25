@@ -5,10 +5,6 @@ import style from './avatar.module.scss';
 const Avatar = defineComponent(() => {
   const store = useUserStore();
 
-  const logout = (e: PointerEvent) => {
-    // window.location.href = '/overview'; // TODO logout
-  };
-
   return () => (
     <el-dropdown>
       {{
@@ -22,7 +18,12 @@ const Avatar = defineComponent(() => {
         ),
         dropdown: () => (
           <el-dropdown-menu>
-            <el-dropdown-item icon="el-icon-switch-button" onClick={logout}>
+            <el-dropdown-item
+              icon="el-icon-switch-button"
+              onClick={() => {
+                store.logout();
+              }}
+            >
               退出登录
             </el-dropdown-item>
           </el-dropdown-menu>

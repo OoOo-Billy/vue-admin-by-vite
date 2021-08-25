@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { login as apiLogin, logout as apiLogout } from '@/api/account';
+import router from '@/router';
 
 export const useUserStore = defineStore({
   id: 'user',
@@ -26,10 +27,12 @@ export const useUserStore = defineStore({
       try {
         apiLogout();
       } catch {}
-      this.nickname = '';
-      this.authority = '';
-      this.id = '';
-      window.location.href = '/login';
+      setTimeout(() => {
+        this.nickname = '';
+        this.authority = '';
+        this.id = '';
+      }, 0);
+      router.replace({ name: 'login' });
     },
   },
 });

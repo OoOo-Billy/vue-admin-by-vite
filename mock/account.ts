@@ -10,7 +10,7 @@ const login: MockMethod = {
       return {
         code: 'FAIL',
         data: null,
-        message: 'Invalid id or pwd.',
+        message: '帐号或密码错误',
       };
     }
     return {
