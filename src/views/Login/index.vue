@@ -63,12 +63,16 @@ const forget = () => {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
   .login-panel__row {
     margin-bottom: 8px;
     &:last-child {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      > a {
+        color: $color-text-secondary;
+      }
     }
   }
 }
