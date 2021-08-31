@@ -14,13 +14,22 @@ export default [
     component: () => import('@/layout/index.vue'),
     children: [
       {
-        path: '/overview',
+        path: 'overview',
         name: 'overview',
         meta: {
           icon: 'el-icon-monitor',
           title: '首页',
         },
         component: () => import('@/views/Overview.vue'),
+      },
+      {
+        path: 'demo-table',
+        name: 'demo-table',
+        meta: {
+          icon: 'el-icon-table',
+          title: '表格页',
+        },
+        component: () => import('@/views/Table/index.vue'),
       },
       {
         path: '/test-view',

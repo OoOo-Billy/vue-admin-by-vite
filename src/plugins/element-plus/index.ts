@@ -9,10 +9,13 @@ import {
   ElDropdown,
   ElDropdownMenu,
   ElDropdownItem,
+  ElForm,
+  ElFormItem,
   ElInput,
   ElMenu,
   ElMenuItem,
   ElScrollbar,
+  ElSelect,
   ElSubmenu,
 } from 'element-plus';
 import 'element-plus/packages/theme-chalk/src/base.scss';
@@ -30,10 +33,13 @@ const components: onDemandComponent[] = [
   ElDropdown,
   ElDropdownMenu,
   ElDropdownItem,
+  ElForm,
+  ElFormItem,
   ElInput,
   ElMenu,
   ElMenuItem,
   ElSubmenu,
+  ElSelect,
   ElScrollbar,
 ];
 const plugins: onDemandComponent[] = [];
