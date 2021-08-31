@@ -10,7 +10,9 @@ const router = createRouter({
 
 router.beforeEach((to, _from, next) => {
   const store = useUserStore();
-  to.name === 'login' || store.id ? next() : next({ name: 'login' });
+  to.name === 'login' || store.id
+    ? next()
+    : next({ name: 'login', replace: true });
 });
 
 export default router;
