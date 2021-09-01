@@ -1,5 +1,5 @@
 <template>
-  <SearchForm :rule="formRule" @submit="search" @reset="test2">1</SearchForm>
+  <SearchForm :rule="formRule" @search="search" />
   <br />
   <el-card>table page.</el-card>
 </template>
@@ -17,11 +17,8 @@ const formRule: SearchFormRule[] = [
   },
 ];
 
-const search = (form: unknown) => {
+const search = (form: Record<string, unknown>) => {
   console.log('submit form:', form);
-};
-const test2 = () => {
-  console.log('reset form');
 };
 </script>
 

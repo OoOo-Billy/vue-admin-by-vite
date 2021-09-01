@@ -13,7 +13,7 @@ const SearchForm = defineComponent<{
   const model = reactive(getInitialData());
 
   const submitForm = () => {
-    emit('submit', model);
+    emit('search', model);
   };
   const resetForm = () => {
     let data = getInitialData();
