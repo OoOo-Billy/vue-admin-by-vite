@@ -1,5 +1,6 @@
 import type { App, Component } from 'vue';
 import {
+  ElAutocomplete,
   ElAvatar,
   ElBreadcrumb,
   ElBreadcrumbItem,
@@ -24,6 +25,7 @@ type onDemandComponent = SFCWithInstall<Component & { name: string }>;
 
 // 按需加载的组件
 const components: onDemandComponent[] = [
+  ElAutocomplete,
   ElAvatar,
   ElBreadcrumb,
   ElBreadcrumbItem,

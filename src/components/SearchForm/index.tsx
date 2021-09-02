@@ -36,16 +36,28 @@ const SearchForm = defineComponent<{
           <el-input
             v-model={model[rule.field]}
             placeholder={placeholder}
+            {...rule.props}
           ></el-input>
         );
+
       case 'select':
         const options = rule.options || [];
         return (
           <el-select
             v-model={model[rule.field]}
             placeholder={placeholder}
+            {...rule.props}
             options={options}
           ></el-select>
+        );
+
+      case 'autocomplete':
+        return (
+          <el-autocomplete
+            v-model={model[rule.field]}
+            placeholder={placeholder}
+            {...rule.props}
+          ></el-autocomplete>
         );
 
       default:

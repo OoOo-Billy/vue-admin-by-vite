@@ -1,4 +1,4 @@
-export type FieldType = 'input' | 'select';
+export type FieldType = 'input' | 'select' | 'autocomplete';
 
 export interface SearchFormRule {
   field: string;
@@ -7,4 +7,5 @@ export interface SearchFormRule {
   value?: unknown;
   placeholder?: string;
   options?: { value: unknown; label: string }[];
+  props?: object;
 }

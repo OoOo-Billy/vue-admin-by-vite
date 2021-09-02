@@ -11,6 +11,11 @@ interface LoginResponse {
   id: string;
 }
 
+interface MajorItem {
+  majorCode: string;
+  majorName: string;
+}
+
 // -------------------- Request Types -------------------- //
 interface LoginParams {
   id: string;
