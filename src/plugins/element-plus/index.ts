@@ -1,11 +1,11 @@
 import type { App, Component } from 'vue';
 import {
-  ElAutocomplete,
   ElAvatar,
   ElBreadcrumb,
   ElBreadcrumbItem,
   ElButton,
   ElCard,
+  ElCol,
   ElDrawer,
   ElDropdown,
   ElDropdownMenu,
@@ -15,6 +15,8 @@ import {
   ElInput,
   ElMenu,
   ElMenuItem,
+  ElOption,
+  ElRow,
   ElScrollbar,
   ElSelect,
   ElSubmenu,
@@ -25,12 +27,12 @@ type onDemandComponent = SFCWithInstall<Component & { name: string }>;
 
 // 按需加载的组件
 const components: onDemandComponent[] = [
-  ElAutocomplete,
   ElAvatar,
   ElBreadcrumb,
   ElBreadcrumbItem,
   ElButton,
   ElCard,
+  ElCol,
   ElDrawer,
   ElDropdown,
   ElDropdownMenu,
@@ -40,9 +42,11 @@ const components: onDemandComponent[] = [
   ElInput,
   ElMenu,
   ElMenuItem,
-  ElSubmenu,
-  ElSelect,
+  ElOption,
+  ElRow,
   ElScrollbar,
+  ElSelect,
+  ElSubmenu,
 ];
 const plugins: onDemandComponent[] = [];
 

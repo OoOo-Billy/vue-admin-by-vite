@@ -1,4 +1,6 @@
-export type FieldType = 'input' | 'select' | 'autocomplete';
+import { Ref } from 'vue';
+
+export type FieldType = 'input' | 'select';
 
 export interface SearchFormRule {
   field: string;
@@ -6,6 +8,6 @@ export interface SearchFormRule {
   type: FieldType;
   value?: unknown;
   placeholder?: string;
-  options?: { value: unknown; label: string }[];
+  options?: SelectOption[] | Ref<SelectOption[]>;
   props?: object;
 }

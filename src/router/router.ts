@@ -26,7 +26,7 @@ export default [
         path: 'demo-table',
         name: 'demo-table',
         meta: {
-          icon: 'el-icon-table',
+          icon: 'el-icon-document',
           title: '表格页',
         },
         component: () => import('@/views/Table/index.vue'),

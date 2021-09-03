@@ -1,4 +1,4 @@
-import { defineComponent, reactive } from 'vue';
+import { defineComponent, reactive, unref } from 'vue';
 import { SearchFormRule } from './form';
 
 const SearchForm = defineComponent<{
@@ -24,7 +24,9 @@ const SearchForm = defineComponent<{
 
   const _renderFormItem = () => {
     return props.rule.map(rule => (
-      <el-form-item label={rule.label}>{_renderFormField(rule)}</el-form-item>
+      <el-col span={6}>
+        <el-form-item label={rule.label}>{_renderFormField(rule)}</el-form-item>
+      </el-col>
     ));
   };
 
@@ -47,17 +49,12 @@ const SearchForm = defineComponent<{
             v-model={model[rule.field]}
             placeholder={placeholder}
             {...rule.props}
-            options={options}
-          ></el-select>
-        );
-
-      case 'autocomplete':
-        return (
-          <el-autocomplete
-            v-model={model[rule.field]}
-            placeholder={placeholder}
-            {...rule.props}
-          ></el-autocomplete>
+            clearable
+          >
+            {unref(options).map(opt => (
+              <el-option key={opt.value} value={opt.value} label={opt.label} />
+            ))}
+          </el-select>
         );
 
       default:
@@ -67,8 +64,8 @@ const SearchForm = defineComponent<{
 
   return () => (
     <el-card>
-      <el-form model={model}>
-        {_renderFormItem()}
+      <el-form model={model} label-width="80px">
+        <el-row>{_renderFormItem()}</el-row>
         <el-form-item>
           <el-button type="primary" onClick={submitForm}>
             搜 索
