@@ -1,14 +1,18 @@
 <template>
   <SearchForm :rule="formRule" @search="search" />
   <br />
-  <el-card>table page.</el-card>
+  <el-card>
+    {{ pagination.page }}/{{
+      Math.ceil(pagination.total / pagination.pageSize)
+    }}
+  </el-card>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import SearchForm from '@/components/SearchForm';
 import type { SearchFormRule } from '@/components/SearchForm/form';
-import { getMajors } from '@/api/school';
+import { getMajors, getStudents } from '@/api/school';
 
 const majors = ref<SelectOption[]>([]);
 
@@ -64,6 +68,9 @@ const formRule: SearchFormRule[] = [
   },
 ];
 
+const tableData = ref<Student[]>([]);
+const pagination = reactive({ page: 1, pageSize: 10, total: 0 });
+
 (async function () {
   try {
     const res = await getMajors();
@@ -74,7 +81,16 @@ const formRule: SearchFormRule[] = [
   } catch {}
 })();
 
-const search = (form: Record<string, unknown>) => {
-  console.log('submit form:', form);
+const search = async (form: Record<string, unknown>) => {
+  try {
+    const res = await getStudents({
+      ...form,
+      pagination: { page: 1, pageSize: 10 },
+    } as unknown as GetStudentParams);
+    tableData.value = res.list;
+    pagination.page = res.currentPage;
+    pagination.pageSize = res.pageSize;
+    pagination.total = res.total;
+  } catch {}
 };
 </script>

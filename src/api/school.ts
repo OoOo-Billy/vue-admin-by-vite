@@ -6,3 +6,11 @@ export const getMajors = () => {
     method: 'get',
   });
 };
+
+export const getStudents = (data: GetStudentParams) => {
+  return http.request<PaginationResponse<Student>>({
+    url: '/api/school/getStudent',
+    method: 'post',
+    data,
+  });
+};
