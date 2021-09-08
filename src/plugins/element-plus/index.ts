@@ -16,10 +16,13 @@ import {
   ElMenu,
   ElMenuItem,
   ElOption,
+  ElPagination,
   ElRow,
   ElScrollbar,
   ElSelect,
   ElSubmenu,
+  ElTable,
+  ElTableColumn,
 } from 'element-plus';
 import 'element-plus/packages/theme-chalk/src/base.scss';
 
@@ -43,10 +46,13 @@ const components: onDemandComponent[] = [
   ElMenu,
   ElMenuItem,
   ElOption,
+  ElPagination,
   ElRow,
   ElScrollbar,
   ElSelect,
   ElSubmenu,
+  ElTable,
+  ElTableColumn,
 ];
 const plugins: onDemandComponent[] = [];
 

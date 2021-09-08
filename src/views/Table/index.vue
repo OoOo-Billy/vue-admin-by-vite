@@ -5,11 +5,24 @@
     {{ pagination.page }}/{{
       Math.ceil(pagination.total / pagination.pageSize)
     }}
+    <el-table :data="tableData">
+      <el-table-column
+        v-for="item in tableColumn"
+        :key="item.prop"
+        :label="item.label"
+        :prop="item.prop"
+        :formatter="item.formatter"
+      ></el-table-column>
+    </el-table>
+    <el-pagination
+      v-model:currentPage="pagination.page"
+      v-model:pageSize="pagination.pageSize"
+    ></el-pagination>
   </el-card>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 import SearchForm from '@/components/SearchForm';
 import type { SearchFormRule } from '@/components/SearchForm/form';
 import { getMajors, getStudents } from '@/api/school';
@@ -70,6 +83,40 @@ const formRule: SearchFormRule[] = [
 
 const tableData = ref<Student[]>([]);
 const pagination = reactive({ page: 1, pageSize: 10, total: 0 });
+const tableColumn: TableColumnConfig[] = [
+  { label: '姓名', prop: 'name' },
+  {
+    label: '性别',
+    prop: 'gender',
+    formatter(_, __, value) {
+      return { male: '男', female: '女' }[value] ?? '';
+    },
+  },
+  {
+    label: '专业',
+    prop: 'major',
+    formatter(_, __, value) {
+      return majors.value.find(item => item.value === value)?.label ?? '';
+    },
+  },
+  {
+    label: '班级',
+    prop: 'studentClass',
+    formatter(_, __, value) {
+      switch (value) {
+        case '1':
+          return '一班';
+        case '2':
+          return '二班';
+        case '3':
+          return '三班';
+        default:
+          return '';
+      }
+    },
+  },
+  { label: '成绩', prop: 'score' },
+];
 
 (async function () {
   try {
@@ -93,4 +140,8 @@ const search = async (form: unknown) => {
     pagination.total = res.total;
   } catch {}
 };
+
+onMounted(() => {
+  search({});
+});
 </script>
