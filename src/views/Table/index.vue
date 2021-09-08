@@ -1,5 +1,5 @@
 <template>
-  <SearchForm :rule="formRule" @search="search" />
+  <SearchForm :rule="formRule" @submit="search" @reset="search" />
   <br />
   <el-card>
     {{ pagination.page }}/{{
@@ -81,10 +81,10 @@ const pagination = reactive({ page: 1, pageSize: 10, total: 0 });
   } catch {}
 })();
 
-const search = async (form: Record<string, unknown>) => {
+const search = async (form: unknown) => {
   try {
     const res = await getStudents({
-      ...form,
+      ...(form as Record<string, string>),
       pagination: { page: 1, pageSize: 10 },
     } as unknown as GetStudentParams);
     tableData.value = res.list;

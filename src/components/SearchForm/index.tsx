@@ -13,13 +13,13 @@ const SearchForm = defineComponent<{
   const model = reactive(getInitialData());
 
   const submitForm = () => {
-    emit('search', model);
+    emit('submit', model);
   };
   const resetForm = () => {
     let data = getInitialData();
     for (let key in model) model[key] = data[key];
 
-    emit('reset');
+    emit('reset', model);
   };
 
   const _renderFormItem = () => {
