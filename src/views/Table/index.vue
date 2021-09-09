@@ -2,9 +2,6 @@
   <SearchForm :rule="formRule" @submit="search" @reset="search" />
   <br />
   <el-card>
-    {{ pagination.page }}/{{
-      Math.ceil(pagination.total / pagination.pageSize)
-    }}
     <el-table :data="tableData">
       <el-table-column
         v-for="item in tableColumn"
@@ -14,15 +11,18 @@
         :formatter="item.formatter"
       ></el-table-column>
     </el-table>
+    <br />
     <el-pagination
       v-model:currentPage="pagination.page"
       v-model:pageSize="pagination.pageSize"
+      :total="pagination.total"
+      layout="total,->,sizes,prev,pager,next,jumper"
     ></el-pagination>
   </el-card>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue';
+import { ref, reactive, watchEffect } from 'vue';
 import SearchForm from '@/components/SearchForm';
 import type { SearchFormRule } from '@/components/SearchForm/form';
 import { getMajors, getStudents } from '@/api/school';
@@ -128,11 +128,11 @@ const tableColumn: TableColumnConfig[] = [
   } catch {}
 })();
 
-const search = async (form: unknown) => {
+const search = async (form: unknown = {}) => {
   try {
     const res = await getStudents({
       ...(form as Record<string, string>),
-      pagination: { page: 1, pageSize: 10 },
+      pagination: { page: pagination.page, pageSize: pagination.pageSize },
     } as unknown as GetStudentParams);
     tableData.value = res.list;
     pagination.page = res.currentPage;
@@ -141,7 +141,7 @@ const search = async (form: unknown) => {
   } catch {}
 };
 
-onMounted(() => {
-  search({});
+watchEffect(() => {
+  search();
 });
 </script>

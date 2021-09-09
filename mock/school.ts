@@ -137,10 +137,12 @@ const getStudent: MockMethod = {
       );
     });
 
+    const beginIndex = (page - 1) * pageSize;
+
     return {
       code: 'SUCCESS',
       data: {
-        list: result.slice((page - 1) * pageSize, pageSize),
+        list: result.slice(beginIndex, beginIndex + pageSize),
         currentPage: page,
         pageSize,
         total: SCHOOL_DATA.students.length,
