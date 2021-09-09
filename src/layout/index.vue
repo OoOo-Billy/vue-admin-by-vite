@@ -3,7 +3,7 @@
   <SideBar />
   <!-- MainBody -->
   <div :class="{ 'main-container': true, collapse: store.sidebarCollapse }">
-    <div class="header">
+    <div :class="{ header: true, collapse: store.sidebarCollapse }">
       <!-- 顶部导航 -->
       <NavBar />
       <!-- Tags -->

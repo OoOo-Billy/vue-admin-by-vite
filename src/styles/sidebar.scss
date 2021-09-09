@@ -30,6 +30,10 @@
     left: $sidebarWidth;
     z-index: 1;
     background-color: $color-theme-background;
+    @include sidebar-transition(left);
+    &.collapse {
+      left: $collapseSidebarWidth;
+    }
     .navbar-wrapper {
       height: $headerHeight;
       border-bottom: $pure-border;
