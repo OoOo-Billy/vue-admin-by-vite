@@ -18,12 +18,21 @@
 
 .main-container {
   margin-left: $sidebarWidth;
+  padding-top: $headerHeight;
   @include sidebar-transition(margin-left);
   &.collapse {
     margin-left: $collapseSidebarWidth;
   }
-  .navbar-wrapper {
-    height: $headerHeight;
-    border-bottom: $pure-border;
+  .header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: $sidebarWidth;
+    z-index: 1;
+    background-color: $color-theme-background;
+    .navbar-wrapper {
+      height: $headerHeight;
+      border-bottom: $pure-border;
+    }
   }
 }
