@@ -145,7 +145,7 @@ const getStudent: MockMethod = {
         list: result.slice(beginIndex, beginIndex + pageSize),
         currentPage: page,
         pageSize,
-        total: SCHOOL_DATA.students.length,
+        total: result.length,
       },
       message: '操作成功',
     };
