@@ -1,34 +1,44 @@
 <template>
-  <SearchForm :rule="formRule" @submit="search" @reset="search" />
+  <SearchForm
+    :rule="formRule"
+    @submit="onSearch"
+    @reset="onSearch"
+    @load="getFormApi"
+  />
   <br />
   <el-card>
     <el-table :data="tableData">
       <el-table-column
         v-for="item in tableColumn"
+        :type="item.type"
         :key="item.prop"
         :label="item.label"
         :prop="item.prop"
+        :width="item.width"
+        :min-width="item.minWidth"
         :formatter="item.formatter"
       ></el-table-column>
     </el-table>
     <br />
     <el-pagination
-      v-model:currentPage="pagination.page"
-      v-model:pageSize="pagination.pageSize"
+      :currentPage="pagination.page"
+      :pageSize="pagination.pageSize"
       :total="pagination.total"
       layout="total,->,sizes,prev,pager,next,jumper"
+      @update:currentPage="onPageChange"
+      @update:pageSize="onPageSizeChange"
     ></el-pagination>
   </el-card>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, watchEffect } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 import SearchForm from '@/components/SearchForm';
 import type { SearchFormRule } from '@/components/SearchForm/form';
 import { getMajors, getStudents } from '@/api/school';
+import { usePagination } from '@/hooks/pagination';
 
 const majors = ref<SelectOption[]>([]);
-
 const formRule: SearchFormRule[] = [
   {
     field: 'student',
@@ -81,8 +91,8 @@ const formRule: SearchFormRule[] = [
   },
 ];
 
+// Table data
 const tableData = ref<Student[]>([]);
-const pagination = reactive({ page: 1, pageSize: 10, total: 0 });
 const tableColumn: TableColumnConfig[] = [
   { label: '姓名', prop: 'name' },
   {
@@ -118,7 +128,8 @@ const tableColumn: TableColumnConfig[] = [
   { label: '成绩', prop: 'score' },
 ];
 
-(async function () {
+// Is equivalent to created
+(async () => {
   try {
     const res = await getMajors();
     majors.value = res.map(item => ({
@@ -128,20 +139,34 @@ const tableColumn: TableColumnConfig[] = [
   } catch {}
 })();
 
-const search = async (form: unknown = {}) => {
+// Get search-form api
+const searchFormRef = ref();
+const getFormApi = (payload: unknown) => {
+  searchFormRef.value = payload;
+};
+
+// Pagination hook
+const [pagination, { onPageChange, onPageSizeChange }] = usePagination(() => {
+  search();
+});
+
+const search = async () => {
   try {
     const res = await getStudents({
-      ...(form as Record<string, string>),
+      ...searchFormRef.value.getFormData(),
       pagination: { page: pagination.page, pageSize: pagination.pageSize },
     } as unknown as GetStudentParams);
     tableData.value = res.list;
-    pagination.page = res.currentPage;
-    pagination.pageSize = res.pageSize;
     pagination.total = res.total;
   } catch {}
 };
 
-watchEffect(() => {
+const onSearch = () => {
+  pagination.page = 1;
+  search();
+};
+
+onMounted(() => {
   search();
 });
 </script>

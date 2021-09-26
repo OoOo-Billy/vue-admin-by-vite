@@ -62,6 +62,10 @@ const SearchForm = defineComponent<{
     }
   };
 
+  // Export method to parent component
+  const getFormData = () => unref(model);
+  emit('load', { getFormData });
+
   return () => (
     <el-card>
       <el-form model={model} label-width="80px">
