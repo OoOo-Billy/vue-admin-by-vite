@@ -18,6 +18,9 @@ export const useUserStore = defineStore({
         this.nickname = nickname;
         this.authority = authority;
         this.id = id;
+        sessionStorage.setItem('nickname', nickname);
+        sessionStorage.setItem('authority', authority);
+        sessionStorage.setItem('id', id);
       } catch {
         throw new Error();
       }
@@ -31,6 +34,7 @@ export const useUserStore = defineStore({
         this.nickname = '';
         this.authority = '';
         this.id = '';
+        sessionStorage.clear();
       }, 0);
       router.replace({ name: 'login' });
     },

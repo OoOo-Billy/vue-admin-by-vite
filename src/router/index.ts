@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
 import routes from './router';
-import { useUserStore } from '@/store/modules/user';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -9,8 +8,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, _from, next) => {
-  const store = useUserStore();
-  to.name === 'login' || store.id
+  to.name === 'login' || sessionStorage.getItem('id')
     ? next()
     : next({ name: 'login', replace: true });
 });
