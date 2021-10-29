@@ -32,6 +32,15 @@ export default [
         component: () => import('@/views/Table/index.vue'),
       },
       {
+        path: 'demo-form',
+        name: 'demo-form',
+        meta: {
+          icon: 'el-icon-document',
+          title: '表单页',
+        },
+        component: () => import('@/views/Form/index.vue'),
+      },
+      {
         path: '/test-view',
         name: 'test-view',
         meta: {
