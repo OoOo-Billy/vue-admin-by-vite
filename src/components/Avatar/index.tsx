@@ -1,19 +1,18 @@
 import { defineComponent } from 'vue';
-import { useUserStore } from '@/store/modules/user';
 import style from './avatar.module.scss';
 
-const Avatar = defineComponent(() => {
-  const store = useUserStore();
-
+const Avatar = defineComponent<{
+  nickname: string;
+}>((props, { emit }) => {
   return () => (
     <el-dropdown>
       {{
         default: () => (
           <div class={style['avatar']}>
             <el-avatar class={style['avatar__icon']}>
-              {store?.nickname?.substr(0, 1)}
+              {props.nickname?.substr(0, 1)}
             </el-avatar>
-            <span>{store?.nickname}</span>
+            <span>{props.nickname}</span>
           </div>
         ),
         dropdown: () => (
@@ -21,7 +20,7 @@ const Avatar = defineComponent(() => {
             <el-dropdown-item
               icon="el-icon-switch-button"
               onClick={() => {
-                store.logout();
+                emit('logout');
               }}
             >
               退出登录
@@ -32,5 +31,10 @@ const Avatar = defineComponent(() => {
     </el-dropdown>
   );
 });
+
+Avatar.props = {
+  nickname: String,
+};
+Avatar.emits = ['logout'];
 
 export default Avatar;

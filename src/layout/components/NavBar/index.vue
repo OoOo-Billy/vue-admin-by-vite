@@ -3,7 +3,7 @@
     <!-- 折叠 -->
     <Hamburger
       class="app-hamburger"
-      :is-active="!store.sidebarCollapse"
+      :is-active="!layoutStore.sidebarCollapse"
       @toggle="toggleSidebar"
     />
 
@@ -20,7 +20,7 @@
       </div>
       <!-- 管理员 -->
       <div class="nav-bar__slot__user">
-        <Avatar />
+        <Avatar :nickname="userStore.nickname" @logout="userStore.logout" />
       </div>
     </div>
   </div>
@@ -32,11 +32,13 @@ import Breadcrumb from './Breadcrumb.vue';
 import Fullscreen from '@/components/Fullscreen';
 import Avatar from '@/components/Avatar';
 import { useLayoutStore } from '@/store/modules/layout';
+import { useUserStore } from '@/store/modules/user';
 
-const store = useLayoutStore();
+const layoutStore = useLayoutStore();
+const userStore = useUserStore();
 
 const toggleSidebar = () => {
-  store.toggleCollapse();
+  layoutStore.toggleCollapse();
 };
 </script>
 
