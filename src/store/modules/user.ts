@@ -5,8 +5,8 @@ import router from '@/router';
 export const useUserStore = defineStore({
   id: 'user',
   state: (): UserState => ({
-    nickname: '',
-    authority: '',
+    nickname: sessionStorage.getItem('nickname') || '',
+    authority: sessionStorage.getItem('authority') || '',
     id: '',
   }),
   actions: {
