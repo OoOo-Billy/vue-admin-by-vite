@@ -84,5 +84,6 @@ const SearchForm = defineComponent<{
 SearchForm.props = {
   rule: Array,
 };
+SearchForm.emits = ['submit', 'reset', 'load'];
 
 export default SearchForm;
