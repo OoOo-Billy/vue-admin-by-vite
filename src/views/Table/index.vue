@@ -7,6 +7,9 @@
   />
   <br />
   <el-card>
+    <div style="text-align: right; padding-right: 10px">
+      <el-button size="small" @click="onExport">导 出</el-button>
+    </div>
     <el-table :data="tableData">
       <el-table-column
         v-for="item in tableColumn"
@@ -37,6 +40,7 @@ import SearchForm from '@/components/SearchForm';
 import type { SearchFormRule } from '@/components/SearchForm/form';
 import { getMajors, getStudents } from '@/api/school';
 import { usePagination } from '@/hooks/pagination';
+import { exportCSV } from '@/utils/export-csv';
 
 const majors = ref<SelectOption[]>([]);
 const formRule: SearchFormRule[] = [
@@ -164,6 +168,21 @@ const search = async () => {
 const onSearch = () => {
   pagination.page = 1;
   search();
+};
+
+const onExport = () => {
+  const now = new Date();
+  exportCSV(
+    tableData.value,
+    {
+      name: '姓名',
+      gender: '性别',
+      major: '专业',
+      studentClass: '班级',
+      score: '分数',
+    },
+    `学生成绩单_${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
+  );
 };
 
 onMounted(() => {
