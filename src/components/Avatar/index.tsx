@@ -10,7 +10,7 @@ const Avatar = defineComponent<{
         default: () => (
           <div class={style['avatar']}>
             <el-avatar class={style['avatar__icon']}>
-              {props.nickname?.substr(0, 1)}
+              {props.nickname?.substring(0, 1)}
             </el-avatar>
             <span>{props.nickname}</span>
           </div>
