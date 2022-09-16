@@ -1,4 +1,4 @@
-import type { App, Component } from 'vue';
+import type { App, Component, Plugin } from 'vue';
 import {
   ElAvatar,
   ElBreadcrumb,
@@ -20,16 +20,14 @@ import {
   ElRow,
   ElScrollbar,
   ElSelect,
-  ElSubmenu,
+  ElSubMenu,
   ElTable,
   ElTableColumn,
 } from 'element-plus';
-import 'element-plus/packages/theme-chalk/src/base.scss';
-
-type onDemandComponent = SFCWithInstall<Component & { name: string }>;
+import { registerIcon } from './icon';
 
 // 按需加载的组件
-const components: onDemandComponent[] = [
+const components: Component[] = [
   ElAvatar,
   ElBreadcrumb,
   ElBreadcrumbItem,
@@ -50,19 +48,29 @@ const components: onDemandComponent[] = [
   ElRow,
   ElScrollbar,
   ElSelect,
-  ElSubmenu,
+  ElSubMenu,
   ElTable,
   ElTableColumn,
 ];
-const plugins: onDemandComponent[] = [];
+const plugins: Plugin[] = [];
 
-const useElementPlus = (vm: App) => {
+const registerComponentAndPlugin = (vm: App) => {
   components.forEach(component => {
-    vm.component(component.name, component);
+    vm.component(component.name!, component);
   });
   plugins.forEach(plugin => {
     vm.use(plugin);
   });
+};
+
+const useElementPlus = (context: App) => {
+  registerComponentAndPlugin(context);
+};
+
+// TODO find a better way to inject icons.
+useElementPlus.useWithIcon = (context: App) => {
+  registerComponentAndPlugin(context);
+  registerIcon(context);
 };
 
 export default useElementPlus;

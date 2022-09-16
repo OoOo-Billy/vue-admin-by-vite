@@ -7,7 +7,7 @@
       <div class="login-panel__row">
         <el-input
           v-model="loginForm.id"
-          prefix-icon="el-icon-user"
+          prefix-icon="User"
           type="text"
           placeholder="admin"
         />
@@ -15,7 +15,7 @@
       <div class="login-panel__row">
         <el-input
           v-model="loginForm.pwd"
-          prefix-icon="el-icon-key"
+          prefix-icon="Key"
           type="password"
           placeholder="admin"
           show-password

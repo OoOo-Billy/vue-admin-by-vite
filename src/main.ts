@@ -9,7 +9,7 @@ import '@/styles/index.scss';
 const app = createApp(App);
 
 (async () => {
-  app.use(store).use(router).use(elementPlus);
+  app.use(store).use(router).use(elementPlus.useWithIcon);
 
   await router.isReady();
 

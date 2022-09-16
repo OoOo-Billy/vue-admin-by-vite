@@ -1,8 +1,10 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import styleImport from 'vite-plugin-style-import';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { viteMockServe } from 'vite-plugin-mock';
 
 const alias: Record<string, string> = {
@@ -18,20 +20,11 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    styleImport({
-      libs: [
-        {
-          libraryName: 'element-plus',
-          esModule: true,
-          ensureStyleFile: true,
-          resolveStyle: name => {
-            return `element-plus/lib/theme-chalk/${name}.css`;
-          },
-          resolveComponent: name => {
-            return `element-plus/lib/${name}`;
-          },
-        },
-      ],
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
     }),
     viteMockServe({
       mockPath: 'mock',
