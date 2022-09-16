@@ -1,5 +1,4 @@
 import { MockMethod } from 'vite-plugin-mock';
-import { MockResponseOption } from './mock.d';
 import majors from './json/major.json';
 
 const m = [];
@@ -116,7 +115,7 @@ const getMajor: MockMethod = {
 const getStudent: MockMethod = {
   url: '/api/school/getStudent',
   method: 'post',
-  response: (opt: MockResponseOption) => {
+  response: opt => {
     const {
       student,
       gender,

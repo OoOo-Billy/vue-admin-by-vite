@@ -1,10 +1,9 @@
 import { MockMethod } from 'vite-plugin-mock';
-import { MockResponseOption } from './mock.d';
 
 const login: MockMethod = {
   url: '/api/account/login',
   method: 'post',
-  response: (opt: MockResponseOption) => {
+  response: opt => {
     const { id, pwd } = opt.body;
     if (id !== 'admin' || pwd !== 'admin') {
       return {
